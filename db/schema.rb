@@ -11,13 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140125203813) do
+ActiveRecord::Schema.define(version: 20140125211434) do
 
   create_table "countries", force: true do |t|
     t.string   "name"
     t.string   "flag"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "country_code"
   end
 
   create_table "countries_events", id: false, force: true do |t|
@@ -49,6 +50,15 @@ ActiveRecord::Schema.define(version: 20140125203813) do
   create_table "leagues", force: true do |t|
     t.string   "name"
     t.string   "photo"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_picks", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "event_id"
+    t.integer  "country_id"
+    t.integer  "points_awarded", default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
