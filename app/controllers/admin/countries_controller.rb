@@ -1,4 +1,5 @@
 class Admin::CountriesController < AdminController
+  
   def index 
   	@countries = Country.all
   end
@@ -9,16 +10,23 @@ class Admin::CountriesController < AdminController
 
   def create
     @country = Country.new(country_params)
-    @country.save
-    flash[:notice] = "Country successfully created"
-    redirect_to admin_countries_path
+    if @country.save
+      flash[:notice] = "Country Added!"
+      redirect_to admin_countries_path
+    else
+      render action: "new"
+    end
   end
 
   def edit
   end
 
   def update
-    @country.update(country_params)
+    if @country.update_attributes(country_params)
+      flash[:notice] = "Congrats! You've updated!"
+      redirect_to admin_countries_path and return
+    end
+    render :action => 'edit'
   end
   
   def show
@@ -26,13 +34,15 @@ class Admin::CountriesController < AdminController
   end
 
   def destroy
+    @country = Country.find(params[:id])
     @country.destroy
-    redirect_to admin_countries_path  
+    flash[:notice] = "You've deleted that country"
+    redirect_to admin_countries_url
   end
 
   private
 
  	def country_params
- 		params.require(:country).permit(:name, :flag, :country_code)
+ 		params.require(:country).permit(:name, :flag, :code)
  	end
 end

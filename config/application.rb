@@ -8,7 +8,6 @@ Bundler.require(:default, Rails.env)
 
 module GlobalGames
   class Application < Rails::Application
-
     config.generators do |g|
       g.integration_tool :rspec
       g.test_framework :rspec

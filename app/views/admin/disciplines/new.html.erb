@@ -1,0 +1,13 @@
+<%= form_for [:admin, @discipline] do |form| %>
+	<% if @discipline.errors.any? %>
+		<ul>
+		  <% @discipline.errors.full_messages.each do |msg| %>
+		    <li><%= msg %></li>
+		  <% end %>
+		</ul>
+	<% end %>
+
+  Discipline Name: <%= form.text_field :name %> <br>
+  Discipline Photo: <%= form.file_field :photo %> <br>
+  <%= form.submit %>
+<% end %>
