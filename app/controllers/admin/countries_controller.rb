@@ -1,5 +1,4 @@
 class Admin::CountriesController < AdminController
-  
   def index 
   	@countries = Country.all
   end
@@ -9,15 +8,26 @@ class Admin::CountriesController < AdminController
   end
 
   def create
-    @user = User.new(country_params)
-    if @user.save
-      redirect_to admin_countries_index
-    else
-      render 'new'
-    end
+    @country = Country.new(country_params)
+    @country.save
+    flash[:notice] = "Country successfully created"
+    redirect_to admin_countries_path
   end
 
   def edit
+  end
+
+  def update
+    @country.update(country_params)
+  end
+  
+  def show
+    @country = Country.find(params[:id])
+  end
+
+  def destroy
+    @country.destroy
+    redirect_to admin_countries_path  
   end
 
   private

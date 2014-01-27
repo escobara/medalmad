@@ -1,10 +1,10 @@
 <h1>Admin::Countries#new</h1>
 <p>Find me in app/views/admin/countries/new.html.erb</p>
-<%= form_for @country, :url => {action: "new" }, :html => { :multipart => true } do |form| %>
+<%= form_for [:admin, @country] do |form| %>
 
-  Country Name: <%= form.text_field :name %>
-  Country Code: <%= form.text_field :code %>
-  Flag Image: <%= form.file_field :flag %>
+  Country Name: <%= form.text_field :name %> <br>
+  Country Code: <%= form.text_field :code %> <br>
+  Flag Image: <%= form.file_field :flag %> <br>
 
   <%= form.submit %>
 <% end %>

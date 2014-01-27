@@ -1,7 +1,7 @@
-<% @countries.each do |c| %>
-	<div>
-		<p><%= country.name %></p>	
-		<p><%= country.code %></p>	
-		<p><%= country.name %></p>
-	</div>
+<h1>Countries</h1>
+<% @countries.each do |country| %>
+	<p>Country:<%= country.name %></p>	
+	<p>Code:<%= country.code %></p>	
+	<%= image_tag country.flag(:medium) %>
 <% end %>
+<%= link_to "Add Country", new_admin_country_path %>

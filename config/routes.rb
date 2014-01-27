@@ -3,9 +3,13 @@ GlobalGames::Application.routes.draw do
   root "welcome#index" 
 
   namespace :admin do 
-    resources :events
     resources :countries
+    resources :disciplines do 
+      resources :events
+    end
   end
+
+
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   # The priority is based upon order of creation: first created -> highest priority.
