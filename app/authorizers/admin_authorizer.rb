@@ -1,0 +1,5 @@
+class AdminAuthorizer < ApplicationAuthority
+	
+	
+
+end

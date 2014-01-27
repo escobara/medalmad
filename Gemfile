@@ -19,6 +19,8 @@ gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
+gem "paperclip", "~> 3.0"
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
@@ -27,6 +29,9 @@ gem 'turbolinks'
 
 gem 'devise'
 
+gem 'rolify'
+
+gem 'authority'
 # Facebook login 
 gem 'omniauth-facebook'
 
@@ -36,6 +41,7 @@ gem 'jbuilder', '~> 1.2'
 group :development, :test do 
 	gem 'rspec-rails'
 	gem 'capybara'
+	gem 'factory_girl_rails'
 end
 
 group :doc do

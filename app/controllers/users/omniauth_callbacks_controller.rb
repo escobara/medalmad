@@ -1,5 +1,5 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
-	def facebook
+	def all
 		@user = User.find_for_facebook_oauth(request.env["omniauth.auth"])
 
 		if @user.persisted? 
@@ -10,4 +10,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 			redirect_to new_user_registration_url
 		end
 	end
+
+	alias_method :facebook, :all
 end
