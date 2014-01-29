@@ -1,2 +1,12 @@
-<h1>Admin::Disciplines#show</h1>
-<p>Find me in app/views/admin/disciplines/show.html.erb</p>
+<h1> <% @discipline.name %></h1>
+<% @discipline.each do |discipline| %>
+	<p>Discipline: <%= discipline.name %></p>	
+	<%= image_tag discipline.photo(:medium) %> <br>
+	<% discipline.events.each do |f| %>
+		<li><%= f.name %></li>
+	<% end %>
+	<%= link_to "Edit", edit_admin_discipline_path(discipline) %>
+	<%= link_to 'Delete', admin_discipline_path(discipline),
+            :confirm => 'Are you sure?', :method => :delete %> 
+
+<% end %>

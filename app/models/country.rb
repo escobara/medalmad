@@ -6,6 +6,8 @@ class Country < ActiveRecord::Base
 	
 	validates :name, presence: true
 
+	validates_uniqueness_of :name
+
 	validates :code, length: { is: 3 }
 
 	validates_attachment_content_type :flag, :content_type => /^image\/(png|gif|jpeg)/

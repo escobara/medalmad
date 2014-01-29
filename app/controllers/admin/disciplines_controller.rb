@@ -1,7 +1,8 @@
 class Admin::DisciplinesController < AdminController
   
   def index 
-  	@disciplines = Discipline.all
+  	@disciplines = Discipline.all   
+
   end
 
   def new
@@ -18,10 +19,10 @@ class Admin::DisciplinesController < AdminController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
+    @discipline = Discipline.find(params[:id])
     if @discipline.update_attributes(discipline_params)
       flash[:notice] = "Congrats! You've updated!"
       redirect_to admin_disciplines_path and return
@@ -31,6 +32,7 @@ class Admin::DisciplinesController < AdminController
   
   def show
     @discipline = Discipline.find(params[:id])
+    @discipline.events
   end
 
   def destroy
@@ -43,6 +45,7 @@ class Admin::DisciplinesController < AdminController
   private
 
  	def discipline_params
- 		params.require(:discipline).permit(:name, :photo)
+ 		params.require(:discipline).permit(:name, :photo,
+      :events_attributes => [:name, :start_date, :end_date])
  	end
 end

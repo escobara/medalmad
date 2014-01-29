@@ -3,4 +3,9 @@ class Discipline < ActiveRecord::Base
 
 	has_many :events 
 	accepts_nested_attributes_for :events, allow_destroy: true
+
+	validates :name, presence: true
+
+	validates_attachment_presence :photo                    
+	validates_attachment_content_type :photo, :content_type=>['image/jpeg', 'image/png', 'image/gif']
 end

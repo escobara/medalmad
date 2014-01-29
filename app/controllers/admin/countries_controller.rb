@@ -19,6 +19,7 @@ class Admin::CountriesController < AdminController
   end
 
   def edit
+    @patient.build_treatments
   end
 
   def update
