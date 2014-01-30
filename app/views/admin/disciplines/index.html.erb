@@ -1,9 +1,9 @@
 <h1>Disciplines</h1>
 <% @disciplines.each do |discipline| %>
-	<p>Discipline: <%= discipline.name %></p>	
+	<h3><%= discipline.name %></h3>	
 	<%= image_tag discipline.photo(:medium) %> <br>
 	<% discipline.events.each do |f| %>
-		<li><%= f.name %></li>
+		<p> <%= link_to f.name %></p>
 	<% end %>
 	<%= link_to "Edit", edit_admin_discipline_path(discipline) %>
 	<%= link_to 'Delete', admin_discipline_path(discipline),

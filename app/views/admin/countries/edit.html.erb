@@ -1,2 +1,16 @@
-<h1>Admin::Countries#edit</h1>
-<p>Find me in app/views/admin/countries/edit.html.erb</p>
+<h1>Edit <%= @country.name %></h1>
+<%= form_for [:admin, @country] do |form| %>
+<% if @country.errors.any? %>
+	<ul>
+	  <% @country.errors.full_messages.each do |msg| %>
+	    <li><%= msg %></li>
+	  <% end %>
+	</ul>
+<% end %>
+
+  Country Name: <%= form.text_field :name %> <br>
+  Country Code: <%= form.text_field :code %> <br>
+  Flag Image: <%= form.file_field :flag %> <br>
+
+  <%= form.submit %>
+<% end %>

@@ -1,10 +1,10 @@
 <h1>Countries</h1>
 <% @countries.each do |country| %>
-	<p>Country: <%= country.name %></p>	
-	<p>Code: <%= country.code %></p>	
-	<%= image_tag country.flag(:medium) %>
-	<% link_to "Edit", edit_admin_country_path(country) %>
-	<%= link_to 'delete country?', admin_country_path(country),
+	<h3><%= country.name %></h3>	
+	<p>IOC Code: <%= country.code %></p>	
+	<%= image_tag country.flag(:medium) %>  <br>
+	<%= link_to "Edit", edit_admin_country_path(country) %>
+	<%= link_to 'Delete', admin_country_path(country),
             :confirm => 'Are you sure?', :method => :delete %> 
 <% end %>
 <%= link_to "Add Country", new_admin_country_path %>

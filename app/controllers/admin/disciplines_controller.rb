@@ -2,11 +2,11 @@ class Admin::DisciplinesController < AdminController
   
   def index 
   	@disciplines = Discipline.all   
-
   end
 
   def new
   	@discipline = Discipline.new
+    @discipline.events.new
   end
 
   def create
@@ -19,7 +19,10 @@ class Admin::DisciplinesController < AdminController
     end
   end
 
-  def edit; end
+  def edit
+    @discipline = Discipline.find(params[:id])
+    @discipline.events
+  end
 
   def update
     @discipline = Discipline.find(params[:id])
@@ -32,7 +35,7 @@ class Admin::DisciplinesController < AdminController
   
   def show
     @discipline = Discipline.find(params[:id])
-    @discipline.events
+    @events = @discipline.events
   end
 
   def destroy

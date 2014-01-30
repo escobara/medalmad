@@ -6,8 +6,8 @@ class ApplicationController < ActionController::Base
 	def after_sign_in_path_for(resource)
 		if resource.is_a?(User) && resource.has_role?(:admin)
 			admin_countries_path
-		else
-			super
+		elsif resource.is_a?(User)
+			leagues_path
 		end
 	end
 end

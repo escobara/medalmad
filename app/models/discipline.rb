@@ -8,4 +8,9 @@ class Discipline < ActiveRecord::Base
 
 	validates_attachment_presence :photo                    
 	validates_attachment_content_type :photo, :content_type=>['image/jpeg', 'image/png', 'image/gif']
+
+	def countries 
+		events.uniq { |event| event.countries }
+	end 
+
 end

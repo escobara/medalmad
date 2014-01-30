@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140129150821) do
+ActiveRecord::Schema.define(version: 20140130032908) do
 
   create_table "countries", force: true do |t|
     t.string   "name"
@@ -23,11 +23,6 @@ ActiveRecord::Schema.define(version: 20140129150821) do
     t.string   "flag_content_type"
     t.integer  "flag_file_size"
     t.datetime "flag_updated_at"
-  end
-
-  create_table "countries_events", id: false, force: true do |t|
-    t.integer "country_id", null: false
-    t.integer "event_id",   null: false
   end
 
   create_table "disciplines", force: true do |t|
@@ -51,9 +46,23 @@ ActiveRecord::Schema.define(version: 20140129150821) do
     t.integer  "discipline_id"
   end
 
+  create_table "league_memberships", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "league_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "leagues", force: true do |t|
     t.string   "name"
     t.string   "photo"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "participations", force: true do |t|
+    t.integer  "event_id"
+    t.integer  "country_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

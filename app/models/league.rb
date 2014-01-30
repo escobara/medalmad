@@ -1,6 +1,6 @@
 class League < ActiveRecord::Base
-	has_and_belongs_to_many :users
-	
-	resourcify 
-	belongs_to :commissioner, class_name: "User"
+	has_many :league_memberships
+  has_many :players, through: :league_memberships, source: :user
+
+
 end

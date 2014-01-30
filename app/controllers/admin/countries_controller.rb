@@ -19,7 +19,7 @@ class Admin::CountriesController < AdminController
   end
 
   def edit
-    @patient.build_treatments
+    @country = Country.find(params[:id])
   end
 
   def update
