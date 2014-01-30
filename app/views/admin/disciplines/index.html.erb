@@ -3,7 +3,7 @@
 	<h3><%= discipline.name %></h3>	
 	<%= image_tag discipline.photo(:medium) %> <br>
 	<% discipline.events.each do |f| %>
-		<p> <%= link_to f.name %></p>
+		<p> <%= link_to f.name, controller: 'admin/events', action: 'edit', id: f.id %></p>
 	<% end %>
 	<%= link_to "Edit", edit_admin_discipline_path(discipline) %>
 	<%= link_to 'Delete', admin_discipline_path(discipline),
