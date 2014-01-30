@@ -11,4 +11,6 @@ class Country < ActiveRecord::Base
 	validates :code, length: { is: 3 }
 
 	validates_attachment_content_type :flag, :content_type => /^image\/(png|gif|jpeg)/
+
+	
 end

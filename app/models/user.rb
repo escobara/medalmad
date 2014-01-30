@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  # include Authority::UserAbilities
+  include Authority::UserAbilities
   rolify
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -11,8 +11,6 @@ class User < ActiveRecord::Base
 
   has_many :league_memberships
   has_many :leagues, through: :league_memberships
-
-  has_and_belongs_to_many :leagues
 
 	def self.find_for_facebook_oauth(auth)
 	  where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|

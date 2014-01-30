@@ -10,4 +10,6 @@ class ApplicationController < ActionController::Base
 			leagues_path
 		end
 	end
+
+	
 end

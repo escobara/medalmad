@@ -23,12 +23,12 @@ class Admin::EventsController < AdminController
   end
 
   def update
-    # @event = Event.find(params[:id])
-    # if @event.update_attributes(event_params)
-    #   flash[:notice] = "Congrats! You've updated!"
-    #   redirect_to admin_disciplines_path and return
-    # end
-    # render :action => 'edit'
+    @event = Event.find(params[:id])
+    if @event.update_attributes(event_params)
+      flash[:notice] = "Congrats! You've updated!"
+      redirect_to admin_disciplines_path and return
+    end
+    render :action => 'edit'
   end
 
   def show
@@ -42,6 +42,6 @@ class Admin::EventsController < AdminController
   def event_params 
     params.require(:event).permit(:name, :discipline_id, 
         participations_attributes: [:id, 
-          country_attributes: [:id]]) 
+          country_attributes: [:id, :name]]) 
   end
 end
