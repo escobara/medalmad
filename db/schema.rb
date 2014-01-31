@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140131130006) do
+ActiveRecord::Schema.define(version: 20140131160413) do
 
   create_table "countries", force: true do |t|
     t.string   "name"
@@ -47,6 +47,8 @@ ActiveRecord::Schema.define(version: 20140131130006) do
   end
 
   create_table "league_memberships", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "league_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -61,6 +63,7 @@ ActiveRecord::Schema.define(version: 20140131130006) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+    t.integer  "commissioner_id"
   end
 
   create_table "participations", force: true do |t|
