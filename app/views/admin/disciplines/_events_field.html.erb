@@ -1,0 +1,10 @@
+<% form.fields_for :event do |form| %>
+	<%= form.label :name, "Event" %> <br>
+	<%= form.text_field :name %> <br>
+
+	<%= form.label :start_date %><br>
+	<%= form.date_select :start_date %> <br>
+
+	<%= form.label :end_date %> <br>
+	<%= form.date_select :end_date %> 
+<% end %>

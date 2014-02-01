@@ -1,0 +1,12 @@
+<h1>Unison Medal Madness Leagues</h1>
+
+<% @leagues.each do |l| %>
+	<div>
+		<p><%= l.name %></p> <br>
+		<%= image_tag l.photo(:small) %> <br>
+		
+	</div>
+<% end %>
+
+
+ <%# render 'new' %>

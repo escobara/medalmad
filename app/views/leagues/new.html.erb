@@ -1,0 +1,26 @@
+<%= form_for @league, format: :json, :html =>{ multipart: true}, method: :create do |f| %>
+	<% if @league.errors.any? %>
+	<p>The following errors were found:</p>
+	  <ul>
+	    <% @league.errors.full_messages.each do |message| %>
+	      <li>- <%= message %></li>
+	    <% end %>
+	  </ul>
+	<% end %>
+	
+	<%= f.label :private, "Create a private league?" %>
+	<%= f.check_box :private   %> <br>
+
+	<div>
+		<%= f.label :name, "Enter your league Name" %> <br>
+		<%= f.text_field :name %>
+	</div>
+
+	<div>
+		<%= f.label :photo, "Upload Your League Photo" %> <br>
+		<%= f.file_field :photo %> 		
+	</div>
+
+	
+	<%= f.submit "Create League" %>
+<% end %>

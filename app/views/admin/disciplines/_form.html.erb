@@ -1,0 +1,19 @@
+<%= form_for [:admin, @discipline] do |form| %>
+	<% if @discipline.errors.any? %>
+		<ul>
+		  <% @discipline.errors.full_messages.each do |msg| %>
+		    <li><%= msg %></li>
+		  <% end %>
+		</ul>
+	<% end %>
+	<div>
+		<%= form.label :name, "Discipline" %> <br>
+		<%= form.text_field :name %> 
+	</div>
+	<div>
+		<%= form.label :photo, "Image" %> <br>
+		<%= form.file_field :photo %>
+	</div> 
+	
+  	<%= form.submit %>
+<% end %>

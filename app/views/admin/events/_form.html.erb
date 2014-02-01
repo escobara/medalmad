@@ -1,0 +1,29 @@
+<%= form_for [:admin, @event] do |form| %>
+	<% if @event.errors.any? %>
+		<ul>
+		  <% @event.errors.full_messages.each do |msg| %>
+		    <li><%= msg %></li>
+		  <% end %>
+		</ul>
+	<% end %>
+	<div>
+		<%= form.label :discipline_id, "Discipline" %> <br>
+		<%= form.select :discipline_id, Discipline.all.collect {|d| [d.name, d.id]} %> <br>
+
+		<%= form.label :name, "Event" %> <br>
+		<%= form.text_field :name %> <br>
+
+		<%= form.label :start_date %><br>
+		<%= form.date_select :start_date %> <br>
+
+		<%= form.label :end_date %> <br>
+		<%= form.date_select :end_date %> 
+
+		<%= form.fields_for :participations do |ff|  %> <br>
+			<%= ff.select :country_id, Country.all.collect {|country| [country.name, country.id]}, {}, :multiple => true %> <br>
+			
+
+		<% end %>
+	</div>
+  	<%= form.submit %>
+<% end %>
