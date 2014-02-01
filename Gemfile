@@ -40,9 +40,12 @@ gem 'omniauth-facebook'
 gem 'jbuilder', '~> 1.2'
 
 group :development, :test do 
+    gem 'cucumber-rails', require: false
 	gem 'rspec-rails'
 	gem 'capybara'
 	gem 'factory_girl_rails'
+	gem 'database_cleaner'
+	gem 'launchy'
 end
 
 group :doc do

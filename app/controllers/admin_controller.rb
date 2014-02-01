@@ -2,6 +2,7 @@ class AdminController < ApplicationController
   before_filter :authorized?
   layout 'admin'
   
+  
   private
   def authorized?
     unless current_user.has_role? :admin

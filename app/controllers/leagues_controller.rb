@@ -14,11 +14,11 @@ class LeaguesController < ApplicationController
   end
 
   def new
-    @league = current_user.leagues.create(league_params)
+    @league = current_user.leagues.new
   end
 
   def create
-    @league = @user.leagues.create(league_params)
+    @league = current_user.leagues.create(league_params)
     @league.photo = params[:IMAGEDATA] if params[:IMAGEDATA].present? 
     @league.commissioner_id = current_user.id 
     respond_with(@league) do |format|
@@ -45,5 +45,5 @@ class LeaguesController < ApplicationController
     params.require(:league).permit(:name, :photo, :private, :commissioner_id)   
   end
 
-
 end
+
