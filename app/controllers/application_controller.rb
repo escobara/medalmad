@@ -21,3 +21,4 @@ class ApplicationController < ActionController::Base
 		request.format.json?
 	end
 end
+

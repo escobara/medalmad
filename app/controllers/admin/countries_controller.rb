@@ -23,6 +23,7 @@ class Admin::CountriesController < AdminController
   end
 
   def update
+    @country = Country.find(params[:id])
     if @country.update_attributes(country_params)
       flash[:notice] = "Congrats! You've updated!"
       redirect_to admin_countries_path and return

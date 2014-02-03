@@ -51,5 +51,17 @@ Then(/^I should be the commissioner of "(.*?)"$/) do |name|
   expect(the_league.commissioner_id).to eq(User.last.id)
 end
 
+Given(/^I am an authenticated user$/) do
+  pending # express the regexp above with the code you wish you had
+end
+
+When(/^I view my dashboard$/) do
+  pending # express the regexp above with the code you wish you had
+end
+
+Then(/^I should not see "(.*?)" in my dashboard$/) do |arg1|
+  pending # express the regexp above with the code you wish you had
+end
+
 
 

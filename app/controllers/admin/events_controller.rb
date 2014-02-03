@@ -3,13 +3,15 @@ class Admin::EventsController < AdminController
 
   def new
     @event = Event.new
-    @participations = @event.participations.build
-    @country = @participations.build_event
+    # @participations = @event.participations.build
+    # @country = @participations.build_event
   end
 
   def create
     @event = Event.new(event_params)
-    if @event.save!
+    @participations = @event.participations
+
+    if @event.save
       flash[:notice] = "Event Added!"
       redirect_to  admin_disciplines_path
       return
@@ -41,6 +43,6 @@ class Admin::EventsController < AdminController
   private 
   def event_params 
     params.require(:event).permit(:name, :discipline_id, 
-        participations_attributes: [:id, :category_ids => []] ) 
+        :participations_attributes => [:category_ids => []]  ) 
   end
 end
