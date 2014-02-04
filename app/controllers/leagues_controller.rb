@@ -1,7 +1,7 @@
 class LeaguesController < ApplicationController
 	before_filter :authenticate_user!
 
-	respond_to :js, :json, :html
+	respond_to :json, :html
 
   def index
     @leagues = current_user.leagues.all
@@ -23,7 +23,7 @@ class LeaguesController < ApplicationController
     respond_with(@league) do |format|
       if @league.save
         flash[:notice] = 'league was successfully created.'
-        format.js {render @league}
+        format.json {render @league}
         format.html { redirect_to(@leagues) }
       else
         format.html { render :action => "new" }

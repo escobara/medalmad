@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140204062358) do
+ActiveRecord::Schema.define(version: 20140204114615) do
 
   create_table "countries", force: true do |t|
     t.string   "name"
@@ -44,6 +44,9 @@ ActiveRecord::Schema.define(version: 20140204062358) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "discipline_id"
+    t.integer  "bronze_country_id"
+    t.integer  "silver_country_id"
+    t.integer  "gold_country_id"
   end
 
   create_table "league_memberships", force: true do |t|
@@ -58,7 +61,7 @@ ActiveRecord::Schema.define(version: 20140204062358) do
     t.string   "photo"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "is_private"
+    t.boolean  "private"
     t.string   "photo_file_name"
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
@@ -72,8 +75,6 @@ ActiveRecord::Schema.define(version: 20140204062358) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "participations", ["event_id", "country_id"], name: "index_participations_on_event_id_and_country_id", using: :btree
 
   create_table "roles", force: true do |t|
     t.string   "name"
