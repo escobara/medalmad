@@ -5,9 +5,11 @@ GlobalGames::Application.routes.draw do
   namespace :admin do 
     resources :countries
     resources :disciplines 
-    resources :events, except: [:index]
+    resources :events
   end
-
+  
+  resources :events
+  
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" } do
     get 'sign_in', :to => 'users/sessions#new', :as => :new_user_session
     get 'sign_out', :to => 'users/sessions#destroy', :as => :destroy_user_session
