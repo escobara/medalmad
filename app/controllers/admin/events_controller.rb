@@ -6,6 +6,14 @@ class Admin::EventsController < AdminController
     @countries = Country.all
   end
 
+  def index
+    @events = Event.find(:all, :include => :discipline)
+    respond_to do |format|
+      format.html 
+      format.json {render json: @events}
+    end 
+  end
+
   def create
     @event = Event.new(event_params)
     @countries = Country.all
@@ -23,15 +31,22 @@ class Admin::EventsController < AdminController
 
   def edit
     @event = Event.find(params[:id])
+    @countries = Country.all
   end
 
   def update
     @event = Event.find(params[:id])
-    if @event.update_attributes(event_params)
-      flash[:notice] = "Congrats! You've updated!"
-      redirect_to admin_disciplines_path and return
+    @countries = Country.all
+    
+    if @event.save
+      countries = Country.where(:id => params[:countries])
+      countries.each {|country| @event.countries << country}
+      flash[:notice] = "Event Added!"
+      redirect_to  admin_disciplines_path
+      return
+    else
+      render action: "new"
     end
-    render :action => 'edit'
   end
 
   def show
@@ -43,6 +58,6 @@ class Admin::EventsController < AdminController
 
   private 
   def event_params 
-    params.require(:event).permit(:name, :discipline_id, :countries) 
+    params.require(:event).permit(:name, :start_date, :end_date, :discipline_id, :countries) 
   end
 end
