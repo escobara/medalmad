@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails_12factor', group: :production
-gem 'pg', group: :production
+# gem 'pg', group: :production
 # gem "rails-api"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.1'
@@ -54,6 +54,7 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+gem "active_model_serializers"
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 

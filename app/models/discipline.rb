@@ -4,6 +4,8 @@ class Discipline < ActiveRecord::Base
 	has_many :events 
 	accepts_nested_attributes_for :events, allow_destroy: true
 
+	has_many :user_picks
+	
 	validates :name, presence: true
 
 	validates_attachment_presence :photo                    
@@ -12,7 +14,5 @@ class Discipline < ActiveRecord::Base
 	def countries 
 		events.map { |event| event.participations }
 	end 
-
-	
 
 end
