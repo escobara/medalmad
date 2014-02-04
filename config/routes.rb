@@ -7,6 +7,8 @@ GlobalGames::Application.routes.draw do
     resources :disciplines 
     resources :events
   end
+
+  resources :rosters
   
   match 'events', to: 'disciplines#index', via: [:get]
   

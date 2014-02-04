@@ -1,0 +1,18 @@
+<%= form_for(@user_picks, url: rosters_path) do |form| %>
+	
+		<% Discipline.all.each do |f| %>
+			<div class="panel-heading">
+				<h4 class="panel-title"><a href=""><%= f.name %></a></h4>
+			</div>
+			<% f.events.all.each do |event|  %>
+				<%= hidden_field_tag @user_picks.event_id %>
+				<li> <%= event.name %></li>
+				<div>
+					<%= form.label :country_id %>
+					<%= select(:user_pick, :country_id, event.countries.collect {|p| [ p.name, p.id ] }, {include_blank: false}) %>
+				</div>
+
+				<% end %>
+			<% end %><%= form.submit %>
+			<% end %>
+	
