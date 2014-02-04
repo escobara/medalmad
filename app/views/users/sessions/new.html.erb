@@ -1,17 +1,29 @@
-<h2>Sign in</h2>
+<article class="firstScreen">
+	<%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => "form-signin clearfix" })  do |f| %>
+        <h2 class="form-signin-heading">Are you ready to get medal mad?</h2>
+        <p>Every two years, there’s a sporting event with the power to unite the world. Whole nations come together with a singular goal—to bring home the gold. But what about that intrepid soul who never learned to skate? Or, that brave child born a thousand miles from the nearest bobsled run? Or that heroic snowplower who loves the bunny slopes more than the black diamonds?</p>
+        <p>For them, there’s a new game in town.</p>
+        <p>Medal Madness—the first ever fantasy game that uses that tracks results of the winter games to let everyone join in the fun. Just sign up, join your friends in a league and select medal-winning countries by event! </p>
+        <p>That’s Medal Madness. It’s totally, completely medal mad!</p>
+        <section class="formActions">
+            <div class="input-group email">
+			  <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+			  <%= f.email_field :email, :class => "form-control", :placeholder => "Email Address", :autofocus => true %>
+			</div>
+	        <div class="input-group password">
+			  <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+			  <input type="password" class="form-control" placeholder="Password">
+			</div>
+	        <button class="form-control submitLogin" type="submit">Log in</button>
+            <div class="clearfix"></div>
+           <% end %>
 
-<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
-
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
-
-  <% if devise_mapping.rememberable? -%>
-    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-  <% end -%>
-
-  <div><%= f.submit "Sign in" %></div>
-<% end %>
-
-<%= render "users/shared/links" %>
+			<%= render "users/shared/links" %>
+            <section class="signUp">
+                <a class="forgotPw" href="#">Forgot Password?</a> New Here? <a href="#">Sign Up</a>
+            </section>
+            
+        </section>
+    </form>
+    
+</article>

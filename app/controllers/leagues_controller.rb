@@ -1,7 +1,7 @@
 class LeaguesController < ApplicationController
 	before_filter :authenticate_user!
 
-	respond_to :json, :html
+	respond_to :js, :json, :html
 
   def index
     @leagues = current_user.leagues.all
@@ -19,11 +19,11 @@ class LeaguesController < ApplicationController
 
   def create
     @league = current_user.leagues.create(league_params)
-    @league.photo = params[:IMAGEDATA] if params[:IMAGEDATA].present? 
     @league.commissioner_id = current_user.id 
     respond_with(@league) do |format|
       if @league.save
         flash[:notice] = 'league was successfully created.'
+        format.js {render @league}
         format.html { redirect_to(@leagues) }
       else
         format.html { render :action => "new" }
@@ -42,7 +42,7 @@ class LeaguesController < ApplicationController
   private
 
   def league_params
-    params.require(:league).permit(:name, :photo, :private, :commissioner_id)   
+    params.require(:league).permit(:name, :photo, :is_private)   
   end
 
 end

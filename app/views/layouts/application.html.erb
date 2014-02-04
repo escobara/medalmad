@@ -1,25 +1,66 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>GlobalGames</title>
-  <%= stylesheet_link_tag    "main", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../gg/app/styles/main.css">        
+        <script src="../gg/app/bower_components/jquery/jquery.js"></script>
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    </head>
+    <body class="home">
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <section id="loginOverlay"></section>
 
-<% if user_signed_in? %>
-	<%= link_to "Sign Out",  destroy_user_session_path, :method => :delete %>
-<% else %>
-	<%= link_to "Sign Up", new_user_registration_url %>
-	||
-	<%= link_to "Sign In", new_user_session_url %>
-	||
-<% end %>
+        <!-- Add your site or application content here -->
+        <nav class="navbar navbar-default" role="navigation">
+		  <!-- Brand and toggle get grouped for better mobile display -->
+		  <div class="wrapper">
+		  <div class="navbar-header">
+		    <a class="navbar-brand" id="logo" href="#"><img src="../gg/app/images/logo_white.png"></a>
+		  </div>
+
+		  <!-- Collect the nav links, forms, and other content for toggling -->
+		  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		    <ul class="nav navbar-nav navbar-right">
+		      	<li><a href="#">Game Rules</a></li>
+	      	<% if user_signed_in? %>
+				<li><%= link_to "Sign Out",  destroy_user_session_path, :method => :delete %></li>
+			<% else %>
+				<li><%= link_to "Log in", new_user_session_url %></li>
+				<li><%= link_to "Sign Up", new_user_registration_url %></li>
+			<% end %>
+		    </ul>
+		  </div><!-- /.navbar-collapse -->
+		  </div>
+		</nav>
+
+
 	
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
 <%= yield %>
 
-</body>
+<footer>
+        	
+        </footer>
+
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X');ga('send','pageview');
+        </script>
+    </body>
 </html>
