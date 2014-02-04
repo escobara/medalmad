@@ -30,13 +30,11 @@ test: &test
   socket: /tmp/mysql.sock
 
 production:
-  adapter: mysql2
-  encoding: utf8
-  database: global_games_production
+  adapter: postgresql
+  encoding: unicode
+  database: medal_mad_production
   pool: 5
-  username: root
-  password: 2X9xtB2VRIWf
-  socket: /tmp/mysql.sock
+  password: password1
 
 cucumber:
   <<: *test

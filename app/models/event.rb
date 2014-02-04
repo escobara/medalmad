@@ -12,12 +12,4 @@ class Event < ActiveRecord::Base
 	  read_attribute("discipline_name") || discipline.name
 	end
 	
-	# def to_builder
-	# 	Jbuilder.new do |event|
-	# 		event.id id
-	# 		event.name name
-	# 		event.photo photo
-	# 		event.
-	# 	end
-	# end
 end
