@@ -5,7 +5,11 @@ class LeaguesController < ApplicationController
 
   def index
     @leagues = current_user.leagues.all
-    respond_with(@leagues)
+    respond_to do |format|
+      format.json do
+        render :json => @leagues.to_json(:include => :users )
+      end
+    end
   end
 
   def show

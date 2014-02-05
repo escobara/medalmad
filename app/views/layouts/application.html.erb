@@ -9,9 +9,11 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="../gg/app/styles/main.css">        
-        <script src="../gg/app/bower_components/jquery/jquery.js"></script>
+        <link rel="stylesheet" href="../med/app/styles/main.css">        
+        <script src="../med/app/bower_components/jquery/jquery.js"></script>
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+  	    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+	    <%= csrf_meta_tags %>
     </head>
     <body class="home">
         <!--[if lt IE 7]>
@@ -21,10 +23,10 @@
 
         <!-- Add your site or application content here -->
         <nav class="navbar navbar-default" role="navigation">
-		  <!-- Brand and toggle get grouped for better mobile display -->
+		  <!-- Brand and tomedle get grouped for better mobile display -->
 		  <div class="wrapper">
 		  <div class="navbar-header">
-		    <a class="navbar-brand" id="logo" href="#"><img src="../gg/app/images/logo_white.png"></a>
+		    <a class="navbar-brand" id="logo" href="#"><img src="../med/app/images/logo_white.png"></a>
 		  </div>
 
 		  <!-- Collect the nav links, forms, and other content for toggling -->

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140204114615) do
+ActiveRecord::Schema.define(version: 20140205072145) do
 
   create_table "countries", force: true do |t|
     t.string   "name"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 20140204114615) do
     t.integer  "bronze_country_id"
     t.integer  "silver_country_id"
     t.integer  "gold_country_id"
+    t.boolean  "is_active"
   end
 
   create_table "league_memberships", force: true do |t|
