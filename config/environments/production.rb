@@ -1,6 +1,6 @@
 GlobalGames::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-
+  
   # Code is not reloaded between requests.
   config.cache_classes = true
 
@@ -24,7 +24,7 @@ GlobalGames::Application.configure do
 
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
-  # config.assets.css_compressor = :sass
+  #config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.assets.compile = false
@@ -70,7 +70,7 @@ GlobalGames::Application.configure do
   config.i18n.fallbacks = true
 
   # Send deprecation notices to registered listeners.
-  config.active_support.deprecation = :notify
+  #config.active_support.deprecation = :notify
 
   # Disable automatic flushing of the log to improve performance.
   # config.autoflush_log = false
