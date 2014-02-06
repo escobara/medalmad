@@ -11,7 +11,11 @@ module GlobalGames
     config.generators do |g|
       g.integration_tool :rspec
       g.test_framework :rspec
+      
+    config.to_prepare do
+       DeviseController.respond_to :json, :html
     end
+  end
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

@@ -3,8 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   skip_before_action :verify_authenticity_token, if: :json_request?
-
-	protected
+  
 	def after_sign_in_path_for(resource)
 		if resource.is_a?(User) && resource.has_role?(:admin)
 			admin_countries_path
@@ -12,7 +11,7 @@ class ApplicationController < ActionController::Base
 			leagues_path
 		end
 	end
-
+  
 	def is_commissioner?
 		current_user.id == league.commissioner_id
 	end

@@ -34,7 +34,9 @@ production:
   encoding: unicode
   database: medal_mad_production
   pool: 5
-  password: password1
+  username: root
+  password: 2X9xtB2VRIWf
+  socket: /tmp/mysql.sock
 
 cucumber:
   <<: *test

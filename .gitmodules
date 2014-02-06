@@ -1,0 +1,9 @@
+[submodule "gg"]
+	path = gg
+	url = git@unisonagency.beanstalkapp.com:/unisonagency/global-games.git
+[submodule "gpublic/gg"]
+	path = gpublic/gg
+	url = git@unisonagency.beanstalkapp.com:/unisonagency/global-games.git
+[submodule "public/gg"]
+	path = public/gg
+	url = git@unisonagency.beanstalkapp.com:/unisonagency/global-games.git
