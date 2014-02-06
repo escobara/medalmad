@@ -14,11 +14,7 @@ development:
   database: global_games_development
   pool: 5
   username: root
-<<<<<<< HEAD
   password: 2X9xtB2VRIWf
-=======
-  password:
->>>>>>> bcd4eadfa4bd6f42ca610ccd5659ecdb09b4a8a4
   socket: /tmp/mysql.sock
 
 # Warning: The database defined as "test" will be erased and

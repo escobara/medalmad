@@ -1,17 +1,17 @@
 <%= form_for(@user_pick) do |form| %>
-	
 		<% Discipline.all.each do |f| %>
 			<div class="panel-heading">
 				<h4 class="panel-title"><a href=""><%= f.name %></a></h4>
 			</div>
-			<% f.events.all.each do |event|  %>
+			<% f.events.all.each_with_index do |event, index|  %>
 				<div>
-					<%= event.name %>				
+					<%= event.name %>
 					<%= form.hidden_field :event_id, :value => event.id %>
-					<%= select(:user_pick, :country_id, event.countries.collect {|p| [ p.name, p.id ] }, {include_blank: 'None'}) %>
+					<%= select(:user_pick, :country_id, event.countries.collect {|p| [ p.name, p.id ] }) %>
 				</div>
-
-				<% end %>
-			<% end %><%= form.submit %>
-			<% end %>
+		<% end %>
+		<% end %>
+			<%= form.submit %>
+		<% end %>
+				
 	

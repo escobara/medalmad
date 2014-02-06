@@ -7,8 +7,6 @@ GlobalGames::Application.routes.draw do
     resources :disciplines 
     resources :events
   end
-
-  resources :user_picks
   
   match 'events', to: 'disciplines#index', via: [:get]
   
@@ -22,6 +20,8 @@ GlobalGames::Application.routes.draw do
   devise_scope :user do
     get '/users/auth/:provider' => 'users/omniauth_callbacks#passthru'
   end
+
+  resources :user_picks, :path => 'rosters'
 
   resources :leagues, :path_names => { :index => 'dashboard'}
 
