@@ -1,4 +1,4 @@
-# require 'omniauth-facebook'
+require 'omniauth-facebook'
 Devise.setup do |config|
   
   # The secret key used by Devise. Devise uses this key to generate
@@ -227,7 +227,7 @@ Devise.setup do |config|
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
-  # config.omniauth :facebook, CONFIG_FACEBOOK['api_key'], CONFIG_FACEBOOK['api_secret']
+  config.omniauth :facebook, CONFIG_FACEBOOK['api_key'], CONFIG_FACEBOOK['api_secret']
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
