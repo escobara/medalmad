@@ -2,7 +2,7 @@ class RostersController < ApplicationController
 
 
 	def new
-    @user_picks = current_user.user_picks.new
+    @user_picks = current_user.user_picks.build(params[:user_pick])
 	end
 
 	def index
@@ -10,9 +10,9 @@ class RostersController < ApplicationController
 	end
 
 	def create
-		@user_picks = UserPick.create(user_picks_params)
-    @user_picks.user_id = current_user.id
-    if @user_picks.save
+		@user_pick = UserPick.create(user_picks_params)
+		@user_pick.user_id << current_user.id 
+    if @user_pick.save
     	flash[:notice] = 'picks were successfully created.'
 
 		end

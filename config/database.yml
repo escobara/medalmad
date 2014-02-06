@@ -26,7 +26,7 @@ test: &test
   database: global_games_test
   pool: 5
   username: root
-  password: sa1ntGerma1n
+  password: 2X9xtB2VRIWf
   socket: /tmp/mysql.sock
 
 production:

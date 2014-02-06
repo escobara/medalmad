@@ -8,7 +8,7 @@ GlobalGames::Application.routes.draw do
     resources :events
   end
 
-  resources :rosters
+  resources :user_picks
   
   match 'events', to: 'disciplines#index', via: [:get]
   
