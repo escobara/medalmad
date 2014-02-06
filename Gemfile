@@ -55,6 +55,8 @@ group :doc do
 end
 
 gem "active_model_serializers"
+
+gem "engineyard"
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 

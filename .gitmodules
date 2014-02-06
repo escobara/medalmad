@@ -7,3 +7,6 @@
 [submodule "public/gg"]
 	path = public/gg
 	url = git@unisonagency.beanstalkapp.com:/unisonagency/global-games.git
+[submodule "public/med"]
+	path = public/med
+	url = git@unisonagency.beanstalkapp.com:/unisonagency/global-games.git
