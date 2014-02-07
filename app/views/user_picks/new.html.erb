@@ -1,13 +1,12 @@
-<%= form_for(@user_pick) do |form| %>
+<%= form_for(@user_picks) do |form| %>
 		<% Discipline.all.each do |f| %>
 			<div class="panel-heading">
 				<h4 class="panel-title"><a href=""><%= f.name %></a></h4>
 			</div>
-			<% f.events.all.each_with_index do |event, index|  %>
+			<% f.events.all.each do |event|  %>
 				<div>
 					<%= event.name %>
-					<%= form.hidden_field :event_id, :value => event.id %>
-					<%= select(:user_pick, :country_id, event.countries.collect {|p| [ p.name, p.id ] }) %>
+					<%= select_tag("user_pick[event_id][#{event.id}][country_id][]", options_from_collection_for_select(event.countries, "id", "name")) %>
 				</div>
 		<% end %>
 		<% end %>

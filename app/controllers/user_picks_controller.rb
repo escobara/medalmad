@@ -3,21 +3,19 @@ class UserPicksController < ApplicationController
 
 	def new 
 		@user = current_user
-		@user_pick = current_user.user_picks.new
+		@user_picks = current_user.user_picks.new
 	end
 
 	def index
 	end
 	
 	def create
-		@user_pick = current_user.user_picks.new(user_picks_params)
-
-    if @user_pick.save
-    	events = Event.where( :id => params[:event_id] )
-    	events.each {|event| @user_pick.event_id << event}
-    	countries = Country.where(:id => params[:country_id])
-      countries.each {|country| @user_pick.country_id << country}
-      
+		@user_picks = current_user.user_picks.new(user_picks_params)
+    if @user_picks.save	
+    	@user_picks.each do [add]
+    		add.event_id.push.params[:event_id]
+    		add.country_id.push.params[:country_id]
+    	end
     	flash[:notice] = 'picks were successfully created.'
 		end
 		redirect_to(action: :index)
